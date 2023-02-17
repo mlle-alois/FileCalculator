@@ -12,7 +12,6 @@ public class NumberFileReader {
         List<Integer> numbers = new ArrayList<>();
 
         BufferedReader reader;
-
         try {
             reader = new BufferedReader(new FileReader(fileName));
             String line = reader.readLine();
