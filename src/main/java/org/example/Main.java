@@ -12,34 +12,28 @@ public class Main {
         NumberFileReader fileReader = new NumberFileReader();
         List<Integer> numbers = fileReader.readNumbersFile("numbers.txt");
 
-        CalculatorOperation operation = CalculatorOperation.ADDITION;
+        CalculatorOperation operation = CalculatorOperation.SUBTRACTION;
         Integer result = 0;
+        String operationSing = "+";
         for(int i = 0; i < numbers.size(); i++) {
             switch(operation) {
                 case ADDITION:
                     result += numbers.get(i);
-                    if(i == 0) {
-                        System.out.println(result);
-                    } else {
-                        System.out.println("+" + numbers.get(i) + " (=" + result + ")");
-                    }
+                    operationSing = "+";
                     break;
                 case SUBTRACTION:
                     result -= numbers.get(i);
-                    if(i == 0) {
-                        System.out.println(result);
-                    } else {
-                        System.out.println("-" + numbers.get(i) + " (=" + result + ")");
-                    }
+                    operationSing = "-";
                     break;
                 case MULTIPLICATION:
                     result *= numbers.get(i);
-                    if(i == 0) {
-                        System.out.println(result);
-                    } else {
-                        System.out.println("*" + numbers.get(i) + " (=" + result + ")");
-                    }
+                    operationSing = "*";
                     break;
+            }
+            if(i == 0) {
+                System.out.println(result);
+            } else {
+                System.out.println(operationSing + numbers.get(i) + " (=" + result + ")");
             }
         }
         System.out.println("--------");
